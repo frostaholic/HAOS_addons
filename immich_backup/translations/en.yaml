@@ -1,0 +1,60 @@
+# config/addons/local/immich_backup/translations/en.yaml
+configuration:
+  # PATHS
+  export_dir:
+    name: "Paths — Export Directory"
+    description: >-
+      Directory where albums will be exported.
+      (Create SMB Share in Settings → System → Storage)
+
+  # DATABASE
+  db_host:
+    name: "Database — Host"
+    description: >-
+      IP/hostname of your Immich Postgres server.
+  assets_root:
+    name: "Assets 
+    Description: >-
+      Mounted Path to Immich Assets (Create SMB Share in Settings → System → Storage) 
+  db_name:
+    name: "Database — Name"
+    description: >-
+      Name of the Immich PostgreSQL database (usually "immich").
+  db_user:
+    name: "Database — User"
+    description: >-
+      Postgres user with read access (e.g. "postgres").
+  db_pass:
+    name: "Database — Password"
+    description: >-
+      Password for the database user. Leave blank if none.
+  immich_user_id:
+    name: "Database — Immich User ID"
+    description: >-
+      Your Immich user's UUID (You can find your user ID in Account Account Settings -> Account -> User ID.).
+
+  # SCHEDULE / LOGGING
+  schedule:
+    name: "Schedule — Cron"
+    description: >-
+      Standard cron expression (e.g. "0 2 * * *" = every day at 2 AM).
+  log_level:
+    name: "Logging — Level"
+    description: >-
+      Verbosity of the add-on logs (debug, info, warning, error).
+
+  min_found_abs:
+    name: "Safety — Minimum Files (advanced)"
+    description: >-
+      Minimum number of source files that must be found before deletions are allowed.
+      Leave unset to use the default (100).
+  min_found_fraction:
+    name: "Safety — Minimum Fraction (advanced)"
+    description: >-
+      Minimum fraction of DB assets that must be found on disk before deletions.
+      Leave unset to use the default (0.05 = 5%).
+
+# Only shown if you define matching ports in config.yaml
+network:
+  5000/tcp: "Web GUI (optional if not using Ingress)"
+
