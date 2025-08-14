@@ -1,39 +1,41 @@
-# config/addons/local/immich_backup/translations/en.yaml
+
 configuration:
-  # PATHS
   export_dir:
-    name: "Paths — Export Directory"
-    description: >-
-      Directory where albums will be exported.
-      (Create SMB Share in Settings → System → Storage)
-
-  # DATABASE
+    name: "Export directory"
+    description: "Folder (e.g. /config/album_export or a mounted volume) where albums are written."
   db_host:
-    name: "Database — Host"
-    description: >-
-      IP/hostname of your Immich Postgres server.
-  assets_root:
-    name: "Assets 
-    Description: >-
-      Mounted Path to Immich Assets (Create SMB Share in Settings → System → Storage) 
+    name: "Database host"
+    description: "Postgres host of the Immich database."
   db_name:
-    name: "Database — Name"
-    description: >-
-      Name of the Immich PostgreSQL database (usually "immich").
+    name: "Database name"
+    description: "Postgres database name (usually 'immich')."
   db_user:
-    name: "Database — User"
-    description: >-
-      Postgres user with read access (e.g. "postgres").
+    name: "Database user"
+    description: "Postgres username."
   db_pass:
-    name: "Database — Password"
-    description: >-
-      Password for the database user. Leave blank if none.
+    name: "Database password"
+    description: "Postgres password."
   immich_user_id:
-    name: "Database — Immich User ID"
-    description: >-
-      Your Immich user's UUID (You can find your user ID in Account Account Settings -> Account -> User ID.).
+    name: "Immich user ID (optional)"
+    description: "Only export albums owned by this Immich user ID. Leave empty to export all."
+  assets_root:
+    name: "Assets root"
+    description: "Path where Immich stores originals, e.g. /media/immich_assets."
+  schedule:
+    name: "Cron schedule"
+    description: "When to run automatically (cron). Leave blank to disable auto-runs."
+  ha_push_interval_sec:
+    name: "HA push interval (sec)"
+    description: "Minimum seconds between sensor updates to Home Assistant."
+  min_found_abs:
+    name: "Deletion guard: minimum sources"
+    description: "Minimum number of source files that must be found to allow cleanup."
+  min_found_fraction:
+    name: "Deletion guard: minimum fraction"
+    description: "Minimum fraction of sources that must be found to allow cleanup."
 
-  # SCHEDULE / LOGGING
+network:
+  "5000/tcp": "Web UI"
   schedule:
     name: "Schedule — Cron"
     description: >-

@@ -1,6 +1,6 @@
 name: "Immich Album Export"
 description: "Exports Immich albums to friendly, per-album folders instead of the internal upload tree."
-version: "1.1.2"
+version: "1.1.6"
 slug: "immich_backup"
 init: false
 arch:
@@ -26,20 +26,21 @@ options:
   db_pass: ""
   immich_user_id: ""
   schedule: "0 2 * * *"
-  ha_push_interval_sec: "60"
-  log_level: "info"
-
+  ha_push_interval_sec: 60
+  
 schema:
   export_dir: str?
-  assets_root: str? 
+  assets_root: str?
   db_host: str?
   db_name: str?
   db_user: str?
   db_pass: password
   immich_user_id: str?
-  min_found_abs: int?
-  min_found_fraction: float? 
   schedule: str?
-  ha_push_interval_sec: int?
-  log_level: match(debug|info|warning|error)?
-
+  ha_push_interval_sec: int(1,3600)?
+  log_level: list(debug|info|warning|error)?
+  # Advanced options with proper validation
+  min_found_abs: int(1,10000)?
+  min_found_fraction: float(0.01,1.0)?
+  db_timeout: int(5,120)?
+  db_max_retries: int(1,10)?

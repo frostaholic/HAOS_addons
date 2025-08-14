@@ -25,7 +25,7 @@ build dashboards and automations.
 2. Paste this repository URL and click **Add**:
 
 ```
-https://github.com/frostaholic/immich_backup
+https://github.com/frostaholic/HAOS_addons
 ```
 
 3. Install **Immich Album Export**, start it, and (optionally) enable **Start on boot** and **Watchdog**.
@@ -74,6 +74,8 @@ Where the add-on writes your album folders and `progress.json` (e.g., `/media/im
 - Open the add-on, click **OPEN WEB UI**.
 - Shows live progress read from `progress.json`.
 
+![Immich Backup Web Gui Dashboard](docs/Screenshot_20250813_150255_Home%20Assistant.jpg)
+
 ---
 
 ## Sensors created
@@ -91,7 +93,7 @@ The add-on publishes entities via the Supervisor API:
 - `sensor.immich_backup_error`
 - **`sensor.immich_backup_percent_copied`** *(overall progress = (copied+skipped+failed)/total)*
 
-Use these directly in dashboards and automationsâ€”no extra template sensors required.
+Use these directly in dashboards and automation "no extra template sensors required."
 
 ---
 
@@ -120,9 +122,6 @@ Your `assets_root` is wrong or doesnt contain `upload/`. Fix the mount or path.
 
 **DB errors (relation/table not found)**  
 Verify DB host/user/pass and network reachability from HA to the Immich PostgreSQL instance.
-
-**No GUI button**  
-Ensure the add-on includes Ingress and Flask is listening on `0.0.0.0:5000` (the add-on does this by default).
 
 ---
 ## ⚠️ Disclaimer
